@@ -1,2 +1,2 @@
 # notepad
-Created with CodeSandbox
+An online text editor to edit, create and modify text files.
