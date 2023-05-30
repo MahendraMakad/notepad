@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notepad</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+  <div class="title pt-3  has-text-centered">Online Text Editor</div>
+  <div class="notepad">
+      <div class="icons ml-5 mt-3">
+          <button>
+          <label for="fileInput" class="upload-label">
+              <input type="file" id="fileInput" class="upload-input" onchange="uploadFile(event)" style="display:none;">
+              <i class="fa-regular fa-folder"></i>
+            </label>  
+          </button>      
+          <button  id="saveBtn" title="Save to Download Folder"><i class="fa-solid fa-download"></i></button>
+          <button id="clearBtn" ><i class="fa-solid fa-trash"></i></button>
+          <button id="cutBtn" onclick="cutText()" title="Cut"><i class="fa-solid fa-cut"></i></button>
+          <button id="copyBtn"  onclick="copyText()" title="Copy"><i class="fa-solid fa-copy"></i></button>
+          <button id="pasteBtn" onclick="pasteText()" title="Paste"><i class="fa-solid fa-paste"></i></button>
+          <button id="undoBtn"  onclick="undo()" title="Undo"><i class="fa-solid fa-undo"></i></button>
+          <button id="pasteBtn" onclick="redo()" title="Redo"><i class="fa-solid fa-redo"></i></button>
+          <button onclick="increaseFont()" t><i class="fa-solid fa-magnifying-glass-plus"></i></i></button>
+          <button onclick="decreaseFont()"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+          <span class="select mt-1">
+            <select id="font-family-select"  onchange="changeFontFamily()">
+              <option value="Arial">Arial</option>
+              <option value="Verdana">Verdana</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Roboto">Roboto</option>
+              <option value="Helvetica">Helvetica</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Courier New">Courier New</option>
+              <option value="Century Gothic">Century Gothic</option>
+              <option value="Lucida Console">Lucida Console</option>
+              <option value="Segoe UI">Segoe UI</option>
+              <option value="Open Sans">Open Sans</option>
+            </select>
+          </span>
+      </div>
+      <div class="text-container mx-2 my-2 is-flex">
+          <textarea id="text-area" value="" oninput="updateStats()"></textarea>
+      </div>
+  </div>
+  <div class="stats">
+    <span id="current-row">Row: 1</span>
+    <span id="current-column">Column: 1</span>
+    <span id="total-words">Words: 0</span>
+    <span id="total-characters">Characters: 0</span>
+  </div>
+  <script src="javascript.js"></script>
+</body>
+</html>
